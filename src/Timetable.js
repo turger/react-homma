@@ -4,12 +4,14 @@ import './Timetable.css'
 class Timetable extends Component {
   render() {
     const { stopsData } = this.props
+    if (!stopsData) return null // to prevent errors while request to HSL api is being made
+    console.log('stopsData',stopsData)
 
     return (
       <div className="Timetable">
         {stopsData.map(stop =>
-          <div className="Timetable_stop" key={stop.stopName}>
-            <h2>{stop.stopName}</h2>
+          <div className="Timetable_stop" key={stop.gtfsId}>
+            <h2>{stop.name}</h2>
             <table>
               <thead>
                 <tr>
@@ -18,10 +20,10 @@ class Timetable extends Component {
                 </tr>
               </thead>
               <tbody>
-                {(stop.stopTimes.map(stopTime =>
-                  <tr key={`${stopTime.route}-${stopTime.time}`}>
-                    <td>{stopTime.route}</td>
-                    <td>{stopTime.time}</td>
+                {(stop.stoptimesWithoutPatterns.map(stopTime =>
+                  <tr key={`${stopTime.trip.route.gtfsId}-${stopTime.realtimeArrival}`}>
+                    <td>{stopTime.trip.route.mode} {stopTime.trip.route.shortName}</td>
+                    <td>{stopTime.realtimeArrival}</td>
                   </tr>
                 ))}
               </tbody>
