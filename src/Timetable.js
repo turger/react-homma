@@ -8,7 +8,7 @@ class Timetable extends Component {
     return (
       <div className="Timetable">
         {stopsData.map(stop =>
-          <div className="Timetable_stop">
+          <div className="Timetable_stop" key={stop.stopName}>
             <h2>{stop.stopName}</h2>
             <table>
               <thead>
