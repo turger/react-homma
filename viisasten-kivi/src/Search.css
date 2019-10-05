@@ -1,3 +1,30 @@
 .Search {
-  
+  margin: 20px;
+  font-size: 16px;
+}
+
+.Search_input {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: none;
+}
+
+.Search_button {
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+  background-color: #ff2d95;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Poista oletusmuotoilut formin elementeistä */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
