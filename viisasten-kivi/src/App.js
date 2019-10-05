@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
 import Timetable from './Timetable'
+import Search from './Search'
 import './App.css'
 import {getStopsData, getLocationByName} from './requests'
 
 class App extends Component {
   constructor() {
-      super()
-      this.state = { stopsData: [] }
+    super()
+    this.state = {
+      stopsData: [],
+      lat: null,
+      lon: null
     }
+  }
 
   async componentDidMount() {
     await this.getStopsData()
@@ -17,6 +22,10 @@ class App extends Component {
 
     const location = await getLocationByName('Mannerheimintie 1')
     console.log('location', location)
+  }
+
+  updateLocation = (lat, lon) => {
+    this.setState({lat, lon})
   }
 
   getStopsData = async () => {
@@ -29,6 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Aikataulu</h1>
+        <Search updateLocation={this.updateLocation}/>
         <Timetable stopsData={this.state.stopsData}/>
       </div>
     )
