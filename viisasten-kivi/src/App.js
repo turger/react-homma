@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Timetable from './Timetable'
 import './App.css'
-import {getStopsData} from './requests'
+import {getStopsData, getLocationByName} from './requests'
 
 class App extends Component {
   constructor() {
@@ -14,6 +14,9 @@ class App extends Component {
     setInterval(async () => {
       await this.getStopsData()
     } , 60000)
+
+    const location = await getLocationByName('Mannerheimintie 1')
+    console.log('location', location)
   }
 
   getStopsData = async () => {
