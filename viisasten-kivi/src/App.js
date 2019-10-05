@@ -10,6 +10,13 @@ class App extends Component {
     }
 
   async componentDidMount() {
+    await this.getStopsData()
+    setInterval(async () => {
+      await this.getStopsData()
+    } , 60000)
+  }
+
+  getStopsData = async () => {
     const response = await getStopsData()
     console.log('Response:', response) // open chrome devtools console panel Command+Option+J to see this output
     this.setState({stopsData: response.data.stops})
