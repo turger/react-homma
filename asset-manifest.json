@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-homma/static/css/main.e1371bc4.chunk.css",
+    "main.js": "/react-homma/static/js/main.03de3400.chunk.js",
+    "main.js.map": "/react-homma/static/js/main.03de3400.chunk.js.map",
+    "runtime~main.js": "/react-homma/static/js/runtime~main.a7f5ba61.js",
+    "runtime~main.js.map": "/react-homma/static/js/runtime~main.a7f5ba61.js.map",
+    "static/js/2.c0601551.chunk.js": "/react-homma/static/js/2.c0601551.chunk.js",
+    "static/js/2.c0601551.chunk.js.map": "/react-homma/static/js/2.c0601551.chunk.js.map",
+    "index.html": "/react-homma/index.html",
+    "precache-manifest.be1df3ccf72a6c3b5a619222bb40bcde.js": "/react-homma/precache-manifest.be1df3ccf72a6c3b5a619222bb40bcde.js",
+    "service-worker.js": "/react-homma/service-worker.js",
+    "static/css/main.e1371bc4.chunk.css.map": "/react-homma/static/css/main.e1371bc4.chunk.css.map"
+  }
+}
