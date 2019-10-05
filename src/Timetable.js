@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import './Timetable.css'
 
 class Timetable extends Component {
+  toHhMm = (milliseconds) => {
+    const departureTime = new Date(milliseconds * 1000)
+    const hours = departureTime.getUTCHours()
+    const minutes = ('0' + departureTime.getUTCMinutes()).slice(-2)
+    return `${hours}:${minutes}`
+  }
+
   render() {
     const { stopsData } = this.props
     if (!stopsData) return null // to prevent errors while request to HSL api is being made
@@ -23,7 +30,7 @@ class Timetable extends Component {
                 {(stop.stoptimesWithoutPatterns.map(stopTime =>
                   <tr key={`${stopTime.trip.route.gtfsId}-${stopTime.realtimeArrival}`}>
                     <td>{stopTime.trip.route.mode} {stopTime.trip.route.shortName}</td>
-                    <td>{stopTime.realtimeArrival}</td>
+                    <td>{this.toHhMm(stopTime.realtimeArrival)}</td>
                   </tr>
                 ))}
               </tbody>
