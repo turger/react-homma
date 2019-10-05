@@ -40,3 +40,24 @@ export const getStopsData = (startTime = getCurrentTimestamp()) => new Promise(r
     }
   )
 })
+
+export const getLocationByName = (search) => new Promise(resolve => {
+  request.get({
+    url: 'https://api.digitransit.fi/geocoding/v1/search',
+    qs: {
+      text: search,
+      size: '1',
+      'focus.point.lat': 60.171578,
+      'focus.point.lon': 24.940529
+    },
+    json: true
+  },
+    function optionalCallback(err, httpResponse, body) {
+      if (err) {
+        return console.error('Location data upload failed:', err);
+      }
+      console.log(body)
+      resolve(body.features.length > 0 ? body.features[0] : null)
+    }
+  )
+})
